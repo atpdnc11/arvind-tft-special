@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Arvind Patil",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 128.17, "left": 99.16, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -130.15,
+      "left": -87.51,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-ili9341", "id": "lcd2", "top": -237.24, "left": 287.07, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 25.25, "left": 162.87, "attrs": {} },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": 8.19,
+      "left": -72.73,
+      "attrs": { "pixels": "16" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:GND", "ring1:GND", "black", [ "h-6.29", "v244.98" ] ],
+    [ "ring1:GND", "nano:GND.1", "black", [ "v67.5", "h252.95" ] ],
+    [ "lcd2:VCC", "nano:5V", "red", [ "v161.16", "h-109.59" ] ],
+    [ "lcd1:VCC", "ring1:VCC", "red", [ "h-22.16", "v302.27", "h10.02" ] ],
+    [ "ring1:VCC", "nano:5V", "red", [ "v48.3", "h219.98" ] ],
+    [ "lcd1:SDA", "nano:A4", "white", [ "h-13.81", "v276.91", "h57.61", "v59.28", "h237.94" ] ],
+    [ "lcd1:SCL", "nano:A5", "violet", [ "h10.4", "v341.71", "h278.01" ] ],
+    [ "rtc1:GND", "nano:GND.2", "black", [ "h-95.2", "v103.24", "h148.61" ] ],
+    [ "rtc1:5V", "nano:3.3V", "red", [ "h-58.46", "v-0.26" ] ],
+    [ "ring1:DIN", "nano:6", "green", [ "v3.22", "h171.14" ] ],
+    [ "lcd2:GND", "nano:GND.2", "black", [ "v67.65", "h-120.03" ] ],
+    [ "lcd2:CS", "nano:10", "yellow", [ "v66.82", "h-214.79" ] ],
+    [ "lcd2:RST", "nano:8", "blue", [ "v101.05", "h-200.18" ] ],
+    [ "lcd2:D/C", "nano:9", "orange", [ "v247.98", "h-189.74" ] ],
+    [ "lcd2:MOSI", "nano:11", "green", [ "v230.45", "h-264.46" ] ],
+    [ "lcd2:SCK", "nano:13", "green", [ "v262.18", "h-292.43" ] ],
+    [ "lcd2:MISO", "nano:12", "green", [ "v31.75", "h-294.1" ] ]
+  ],
+  "dependencies": {}
+}
